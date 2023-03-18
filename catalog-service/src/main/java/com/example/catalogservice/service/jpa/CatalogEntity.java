@@ -1,6 +1,7 @@
 package com.example.catalogservice.service.jpa;
 
 import lombok.Data;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -25,6 +26,7 @@ public class CatalogEntity {
     @Column(nullable = false)
     private Integer unitPrice;
 
-    @Column(nullable = true, updatable = false, insertable = false)
+    @Column(nullable = false, updatable = false, insertable = false)
+    @ColumnDefault(value="CURRENT_TIMESTAMP")
     private Date createAt;
 }
