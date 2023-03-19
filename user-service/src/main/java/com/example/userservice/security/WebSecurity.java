@@ -34,7 +34,9 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     //필터 작업
     private AuthenticationFilter getAuthenticationFilter() throws Exception {
-        AuthenticationFilter authenticationFilter=new AuthenticationFilter();
+        //AuthenticationFilter에서 userService, env를 생성자로 주입받기 때문에
+        //넣어줘야한다!!
+        AuthenticationFilter authenticationFilter=new AuthenticationFilter(userService, env);
         authenticationFilter.setAuthenticationManager(authenticationManager()); //spring security에서 가져온 매니저 지정해주기
 
         return authenticationFilter;
