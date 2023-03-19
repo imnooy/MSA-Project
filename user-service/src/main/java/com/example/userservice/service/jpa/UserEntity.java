@@ -13,7 +13,7 @@ public class UserEntity {
     private Long id;
     @Column(nullable = false, length = 50)
     private String email;
-    @Column(nullable = false, length = 50, unique = true)
+    @Column(nullable = false, length = 50)
     private String pwd;
     @Column(nullable = false, unique = true)
     private String userId;

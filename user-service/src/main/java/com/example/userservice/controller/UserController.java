@@ -4,6 +4,7 @@ import com.example.userservice.dto.UserDto;
 import com.example.userservice.service.UserService;
 import com.example.userservice.service.jpa.UserEntity;
 import com.example.userservice.vo.Greeting;
+import com.example.userservice.vo.RequestLogin;
 import com.example.userservice.vo.RequestUser;
 import com.example.userservice.vo.ResponseUser;
 import org.apache.catalina.User;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user-service/")
+@RequestMapping("/")
 public class UserController {
     private Environment env;
     private UserService userService;
@@ -75,5 +76,10 @@ public class UserController {
         ResponseUser returnUser=new ModelMapper().map(userDto, ResponseUser.class);
 
         return new ResponseEntity<>(returnUser, HttpStatus.OK);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody RequestLogin requestLogin) {
+        return null;
     }
 }

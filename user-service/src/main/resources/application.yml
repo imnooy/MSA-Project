@@ -23,6 +23,7 @@ logging:
     org:
       hibernate:
         SQL: debug
+    com.example.userservice: DEBUG
 
 
 

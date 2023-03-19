@@ -4,11 +4,11 @@ import com.example.userservice.dto.UserDto;
 import com.example.userservice.service.jpa.UserEntity;
 import com.example.userservice.service.jpa.UserRepository;
 import com.example.userservice.vo.ResponseOrder;
-import org.apache.catalina.User;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
-import org.modelmapper.spi.MatchingStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -65,5 +65,17 @@ public class UserServiceImpl implements UserService{
     @Override
     public Iterable<UserEntity> getUserByAll() {
         return userRepository.findAll();
+    }
+
+    //이메일 가지고 사용자 찾아오는 메서드
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        UserEntity userEntity=userRepository.findByEmail(username);
+
+        if(userEntity==null) throw new UsernameNotFoundException(username);
+
+        //new ArrayList<>(): 로그인 되었을 때 할 수 있는 작업 중에서 권한을 추가하는 작업 넣으면 됨
+        //지금은 권한 없어서 걍 빈 리스트
+        return new User(userEntity.getEmail(), userEntity.getEncryptedPwd(), true, true, true, true, new ArrayList<>());
     }
 }
