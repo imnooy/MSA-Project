@@ -41,4 +41,5 @@ public class GlobalFilter extends AbstractGatewayFilterFactory<GlobalFilter.Conf
         private boolean preLogger; //Pre 로거 쓸 건지
         private boolean postLogger; //Post 로거 쓸 건지
     }
+
 }

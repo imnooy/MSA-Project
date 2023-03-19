@@ -49,6 +49,7 @@ spring:
             - Path=/user-service/**
             - Method=GET
           filters:
+                - AuthorizationHeaderFilter # 회원가입, 로그인은 JWT 필요 X!
                 - RemoveRequestHeader=Cookie
                 - RewritePath=/user-service/(?<segment>.*), /$\{segment}
         - id: catalog-service
@@ -59,5 +60,10 @@ spring:
           uri: lb://ORDER-SERVICE
           predicates:
             - Path=/order-service/**
+
+
+token:
+  secret: userTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserToken
+
 
 
