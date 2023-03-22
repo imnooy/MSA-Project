@@ -18,9 +18,9 @@ spring:
     properties:
       hibernate:
         format_sql: true
-token:
-  expiration_time: 864000000 #10 days
-  secret: userTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserToken
+#token:
+#  expiration_time: 864000000 #10 days
+#  secret: userTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserTokenuserToken
 
 logging:
   level:
