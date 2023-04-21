@@ -1,7 +1,7 @@
 server:
   port: 8888
 spring:
-  applilcation:
+  application:
     name: config-service
   cloud:
     config:
