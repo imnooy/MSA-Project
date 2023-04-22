@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: user-service
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC&characterEncoding=UTF-8
@@ -45,5 +50,5 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh,health,beans # 제공되는.. 사용할 end point
+        include: refresh,health,beans,busrefresh # 제공되는.. 사용할 end point
         # refresh : config 정보 알아서 refresh 하겠다 (post요청해야함)
