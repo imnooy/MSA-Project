@@ -61,6 +61,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
                 + Long.parseLong(env.getProperty("token.expiration_time"))))
                 .signWith(SignatureAlgorithm.HS512, env.getProperty("token.secret")) //암호화
                 .compact(); //토큰 생성!
+        System.out.println("암호화한 secret : " + env.getProperty("token.secret"));
 
         response.addHeader("token", token); //헤더에 토큰 집어넣기
         response.addHeader("userId", userDetails.getUserId()); //토큰 정보가 맞는지 확인 위해
